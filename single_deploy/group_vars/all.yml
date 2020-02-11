@@ -1,0 +1,88 @@
+# Versions
+dashboard_archivematica_src_am_version: "stable/1.10.x"
+storage_archivematica_src_ss_version: "stable/0.15.x"
+
+# MySQL Dashboard-01 Configuration
+dashboard_01_archivematica_src_am_db_name: "dashboard01"
+dashboard_01_archivematica_src_am_db_collation: "utf8_general_ci"
+dashboard_01_archivematica_src_am_db_encoding: "utf8"
+dashboard_01_archivematica_src_am_db_host_access: "127.0.0.1"
+dashboard_01_archivematica_src_am_db_user: "dashboard01"
+dashboard_01_archivematica_src_am_db_password: "ChangeMeDashboard01"
+
+# MySQL All settings
+all_archivematica_src_am_db_host: "127.0.0.1"
+
+# Firewall
+all_firewalld_ports_open:
+  - proto: tcp
+    port: 80
+  - proto: tcp
+    port: 3306
+  - proto: tcp
+    port: 8000
+  - proto: tcp
+    port: 9200
+
+# MySQL Configuration
+mysql_01_mysql_root_password: 'ChangeMeMySQLRootPassword'
+mysql_01_mysql_bind_address: '127.0.0.1'
+
+# MySQL Storge Configuration
+storage_01_archivematica_src_ss_db_host: "{{all_archivematica_src_am_db_host}}"
+storage_01_archivematica_src_ss_db_name: "storage01"
+storage_01_archivematica_src_ss_db_collation: "utf8_general_ci"
+storage_01_archivematica_src_ss_db_encoding: "utf8"
+storage_01_archivematica_src_ss_db_host_access: "127.0.0.1"
+storage_01_archivematica_src_ss_db_user: "storage01"
+storage_01_archivematica_src_ss_db_password: "ChangeMeStorage01"
+storage_01_archivematica_src_ss_environment:
+          SS_DB_URL: "mysql://{{ archivematica_src_ss_db_user }}:{{ archivematica_src_ss_db_password }}@{{ archivematica_src_ss_db_host }}:3306/{{ archivematica_src_ss_db_name }}"
+
+# Elasticsearch-01 Configuration
+elasticsearch_01_elasticsearch_version: "6.5.4"
+elasticsearch_01_elasticsearch_heap_size: "512m"
+elasticsearch_01_elasticsearch_network_bind_host: "127.0.0.1"
+elasticsearch_01_archivematica_src_am_dashboard_environment:
+  ARCHIVEMATICA_DASHBOARD_DASHBOARD_ELASTICSEARCH_SERVER: "127.0.0.1:9200"
+
+# Elasticsearch All Configuration
+all_elasticsearch_max_open_files: "65535"
+all_elasticsearch_timezone: "UTC"
+all_elasticsearch_node_max_local_storage_nodes: "1"
+all_elasticsearch_index_mapper_dynamic: "true"
+all_elasticsearch_memory_bootstrap_mlockall: "true"
+all_elasticsearch_install_java: "true"
+all_elasticsearch_thread_pools:
+  - "thread_pool.write.size: 2"
+  - "thread_pool.write.queue_size: 1000"
+all_elasticsearch_network_http_max_content_lengtht: 1024mb
+all_elasticsearch_discovery_zen_ping_multicast_enabled: "false"
+all_elasticsearch_max_locked_memory: "unlimited"
+
+# Dashboard/Storage Install Configuration
+dashboard_archivematica_src_install_am: yes
+dashboard_archivematica_src_install_ss: no
+dashboard_archivematica_src_configure_dashboard: yes
+dashboard_archivematica_src_configure_ss: no
+dashboard_archivematica_src_install_sample_data: no
+storage_archivematica_src_install_am: no
+storage_archivematica_src_install_ss: yes
+storage_archivematica_src_configure_dashboard: no
+storage_archivematica_src_configure_ss: yes
+storage_archivematica_src_install_sample_data: yes
+
+# Archivematica Storage Configuration
+storage_01_archivematica_src_configure_ss_user: "admin"
+storage_01_archivematica_src_configure_ss_password: "ChangeMeSSPassword"
+storage_01_archivematica_src_configure_ss_email: "archivematica-storage@example.com"
+storage_01_archivematica_src_configure_ss_url: "http://127.0.0.1:8000"
+
+# Archivematica Dashboard Configuration
+all_archivematica_src_configure_am_user: "admin"
+all_archivematica_src_configure_am_password: "ChangeMeAMPassword"
+all_archivematica_src_configure_am_email: "archivematica-dashboard@example.com"
+all_archivematica_src_configure_am_org_name: "Example Organisation"
+all_archivematica_src_configure_am_org_id: "EXO"
+
+nodejs_install_npm_user: "{{ ansible_user_id }}"

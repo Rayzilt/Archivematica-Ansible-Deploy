@@ -1,0 +1,11 @@
+[mysql]
+singlenode.example.com
+
+[elasticsearch]
+singlenode.example.com
+
+[storage]
+singlenode.example.com
+
+[dashboard]
+singlenode.example.com
