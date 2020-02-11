@@ -1,0 +1,31 @@
+- src: "https://github.com/geerlingguy/ansible-role-mysql"
+  version: "2.9.5"
+  name: "geerlingguy.mysql"
+
+- src: "https://github.com/artefactual-labs/ansible-elasticsearch"
+  version: "master"
+  name: "artefactual.elasticsearch"
+
+- src: "https://github.com/artefactual-labs/ansible-nginx"
+  version: "master"
+  name: "artefactual.nginx"
+
+- src: "https://github.com/Rayzilt/ansible-archivematica-src"
+  version: "all-fixes"
+  name: "archivematica-src"
+
+- src: "https://github.com/Rayzilt/ansible-proxy-setup"
+  version: "master"
+  name: "pgkehle.proxy"
+
+- src: "https://github.com/oasis-roles/firewalld"
+  version: "master"
+  name: "oasis.firewalld"
+
+- src: "https://github.com/artefactual-labs/ansible-clamav"
+  version: "master"
+  name: "artefactual.clamav"
+
+- src: "https://github.com/artefactual-labs/ansible-gearman.git"
+  version: "master"
+  name: "artefactual.gearman"

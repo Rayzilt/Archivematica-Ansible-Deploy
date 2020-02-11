@@ -1,0 +1,45 @@
+- hosts: "mysql"
+  become: true
+  roles:
+    - role: "geerlingguy.mysql"
+    - role: "oasis.firewalld"
+
+- hosts: "elasticsearch"
+  become: true
+  roles:
+    - role: "artefactual.elasticsearch"
+    - role: "oasis.firewalld"
+
+- hosts: "storage"
+  become: true
+  pre_tasks:
+    - name: Install mysql client
+      yum:
+        name: mariadb
+    - name: Install mysql devel libs
+      yum:
+        name: mariadb-devel
+  roles:
+    - role: "artefactual.nginx"
+    - role: "archivematica-src"
+    - role: "oasis.firewalld"
+
+- hosts: "dashboard"
+  become: true
+  pre_tasks:
+    - name: Install mysql client
+      yum:
+        name: mariadb
+    - name: Install mysql devel libs
+      yum:
+        name: mariadb-devel
+    # Install gcc-c++: https://github.com/archivematica/Issues/issues/1093
+    - name: Install gcc-c++
+      yum:
+        name: gcc-c++
+  roles:
+    - role: "artefactual.nginx"
+    - role: "artefactual.gearman"
+    - role: "artefactual.clamav"
+    - role: "archivematica-src"
+    - role: "oasis.firewalld"

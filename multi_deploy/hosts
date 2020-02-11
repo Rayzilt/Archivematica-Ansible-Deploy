@@ -1,0 +1,13 @@
+[mysql]
+mysql-01.example.com
+
+[elasticsearch]
+elasticsearch-01.example.com
+elasticsearch-02.example.com
+
+[storage]
+storage-01.example.com
+
+[dashboard]
+dashboard-01.example.com
+dashboard-02.example.com
