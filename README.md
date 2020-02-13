@@ -27,7 +27,6 @@ Pull Request needed:
 - https://github.com/artefactual-labs/ansible-archivematica-src/pull/269
 - https://github.com/artefactual-labs/ansible-archivematica-src/pull/276
 - https://github.com/artefactual-labs/ansible-archivematica-src/pull/277
-- https://github.com/artefactual-labs/ansible-archivematica-src/pull/278
 
 ### Support ###
 This is still work in progress, let me know if there are any improvements available.
