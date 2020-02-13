@@ -2,6 +2,9 @@
 dashboard_archivematica_src_am_version: "stable/1.10.x"
 storage_archivematica_src_ss_version: "stable/0.15.x"
 
+# User to connnect to servers
+archivematica_src_configure_ss_ssh_user: "root"
+
 # MySQL Dashboard-01 Configuration
 dashboard_01_archivematica_src_am_db_name: "dashboard01"
 dashboard_01_archivematica_src_am_db_collation: "utf8_general_ci"
