@@ -14,10 +14,6 @@
   version: "qa/1.x"
   name: "archivematica-src"
 
-- src: "https://github.com/Rayzilt/ansible-proxy-setup"
-  version: "master"
-  name: "pgkehle.proxy"
-
 - src: "https://github.com/oasis-roles/firewalld"
   version: "master"
   name: "oasis.firewalld"
