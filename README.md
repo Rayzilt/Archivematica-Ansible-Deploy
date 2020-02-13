@@ -25,8 +25,6 @@ This is due to multiple PR's that needed to be merged before this Ansible setup 
 
 Pull Request needed:
 - https://github.com/artefactual-labs/ansible-archivematica-src/pull/269
-- https://github.com/artefactual-labs/ansible-archivematica-src/pull/276
-- https://github.com/artefactual-labs/ansible-archivematica-src/pull/277
 
 ### Support ###
 This is still work in progress, let me know if there are any improvements available.
