@@ -19,12 +19,5 @@ After changing the configuration in all.yml and specified the servers in hosts a
 1. ansible-galaxy install -r requirements.yml -p ./roles/
 2. ansible-playbook -i hosts playbook.yml
 
-### Notes ###
-Please be aware that currently 'archivematica-src' in requirements.yml points to 'https://github.com/Rayzilt/ansible-archivematica-src' instead of 'https://github.com/artefactual-labs/ansible-archivematica-src'
-This is due to multiple PR's that needed to be merged before this Ansible setup works.
-
-Pull Request needed:
-- https://github.com/artefactual-labs/ansible-archivematica-src/pull/269
-
 ### Support ###
 This is still work in progress, let me know if there are any improvements available.
