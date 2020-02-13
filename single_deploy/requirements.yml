@@ -10,13 +10,9 @@
   version: "master"
   name: "artefactual.nginx"
 
-- src: "https://github.com/Rayzilt/ansible-archivematica-src"
-  version: "all-fixes"
+- src: "https://github.com/artefactual-labs/ansible-archivematica-src"
+  version: "qa/1.x"
   name: "archivematica-src"
-
-- src: "https://github.com/Rayzilt/ansible-proxy-setup"
-  version: "master"
-  name: "pgkehle.proxy"
 
 - src: "https://github.com/oasis-roles/firewalld"
   version: "master"
