@@ -48,6 +48,8 @@ elasticsearch_01_elasticsearch_heap_size: "512m"
 elasticsearch_01_elasticsearch_network_bind_host: "0.0.0.0"
 elasticsearch_01_archivematica_src_am_dashboard_environment:
   ARCHIVEMATICA_DASHBOARD_DASHBOARD_ELASTICSEARCH_SERVER: "10.0.200.11:9200"
+elasticsearch_01_archivematica_src_am_mcpclient_environment:
+  ARCHIVEMATICA_MCPCLIENT_MCPCLIENT_ELASTICSEARCHSERVER: "10.0.200.11:9200"
 
 # Elasticsearch-02 Configuration
 elasticsearch_02_elasticsearch_version: "6.5.4"
@@ -55,6 +57,8 @@ elasticsearch_02_elasticsearch_heap_size: "512m"
 elasticsearch_02_elasticsearch_network_bind_host: "0.0.0.0"
 elasticsearch_02_archivematica_src_am_dashboard_environment:
   ARCHIVEMATICA_DASHBOARD_DASHBOARD_ELASTICSEARCH_SERVER: "10.0.200.12:9200"
+elasticsearch_02_archivematica_src_am_mcpclient_environment:
+  ARCHIVEMATICA_MCPCLIENT_MCPCLIENT_ELASTICSEARCHSERVER: "10.0.200.12:9200"
 
 # Elasticsearch All Configuration
 all_elasticsearch_max_open_files: "65535"
