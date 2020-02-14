@@ -16,6 +16,7 @@ archivematica_src_configure_am_org_id: "{{all_archivematica_src_configure_am_org
 archivematica_src_configure_ss_url: "{{storage_01_archivematica_src_configure_ss_url}}"
 archivematica_src_configure_ss_user: "{{storage_01_archivematica_src_configure_ss_user}}"
 archivematica_src_configure_ss_password: "{{storage_01_archivematica_src_configure_ss_password}}"
+archivematica_src_configure_am_site_url: "{{dashboard_02_archivematica_src_configure_am_site_url}}"
 archivematica_src_am_dashboard_environment: "{{elasticsearch_02_archivematica_src_am_dashboard_environment}}"
 archivematica_src_am_mcpclient_environment: "{{elasticsearch_02_archivematica_src_am_mcpclient_environment}}"
 archivematica_src_ss_db_host: "{{storage_01_archivematica_src_ss_db_host}}"

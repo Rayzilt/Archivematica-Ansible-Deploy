@@ -12,6 +12,7 @@ dashboard_01_archivematica_src_am_db_encoding: "utf8"
 dashboard_01_archivematica_src_am_db_host_access: "10.0.200.%"
 dashboard_01_archivematica_src_am_db_user: "dashboard01"
 dashboard_01_archivematica_src_am_db_password: "ChangeMeDashboard01"
+dashboard_01_archivematica_src_configure_am_site_url: "dashboard-01.example.com"
 
 # MySQL Dashboard-02 Configuration
 dashboard_02_archivematica_src_am_db_name: "dashboard02"
@@ -20,6 +21,7 @@ dashboard_02_archivematica_src_am_db_encoding: "utf8"
 dashboard_02_archivematica_src_am_db_host_access: "10.0.200.%"
 dashboard_02_archivematica_src_am_db_user: "dashboard02"
 dashboard_02_archivematica_src_am_db_password: "ChangeMeDashboard02"
+dashboard_02_archivematica_src_configure_am_site_url: "dashboard-02.example.com"
 
 # MySQL All settings
 all_archivematica_src_am_db_host: "10.0.200.10"
