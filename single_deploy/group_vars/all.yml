@@ -48,7 +48,7 @@ elasticsearch_01_archivematica_src_am_dashboard_environment:
 
 # Elasticsearch All Configuration
 all_elasticsearch_max_open_files: "65535"
-all_elasticsearch_timezone: "UTC"
+all_elasticsearch_java_opts: "-Duser.timezone=Europe/Amsterdam"
 all_elasticsearch_index_mapper_dynamic: "true"
 all_elasticsearch_memory_bootstrap_mlockall: "true"
 all_elasticsearch_install_java: "true"
