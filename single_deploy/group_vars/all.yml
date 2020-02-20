@@ -12,6 +12,13 @@ dashboard_01_archivematica_src_am_db_encoding: "utf8"
 dashboard_01_archivematica_src_am_db_host_access: "127.0.0.1"
 dashboard_01_archivematica_src_am_db_user: "dashboard01"
 dashboard_01_archivematica_src_am_db_password: "ChangeMeDashboard01"
+dashboard_01_archivematica_src_am_dashboard_environment:
+  ARCHIVEMATICA_DASHBOARD_DASHBOARD_SITE_URL: "http://singlenode.example.com"
+  ARCHIVEMATICA_DASHBOARD_EMAIL_DEFAULT_FROM_EMAIL: "dashboard-01@example.com"
+dashboard_01_archivematica_src_am_mcpclient_environment:
+  ARCHIVEMATICA_MCPCLIENT_EMAIL_DEFAULT_FROM_EMAIL: "mcpclient-01@example.com"
+dashboard_01_archivematica_src_am_mcpserver_environment:
+  ARCHIVEMATICA_MCPSERVER_EMAIL_DEFAULT_FROM_EMAIL: "mcpserver-01@pexample.com"
 
 # MySQL All settings
 all_archivematica_src_am_db_host: "127.0.0.1"
