@@ -14,11 +14,13 @@
   become: true
   pre_tasks:
     - name: Install mysql client
-      yum:
+      package:
         name: mariadb
+        state: present
     - name: Install mysql devel libs
-      yum:
+      package:
         name: mariadb-devel
+        state: present
   roles:
     - role: "artefactual.nginx"
     - role: "archivematica-src"
@@ -28,15 +30,18 @@
   become: true
   pre_tasks:
     - name: Install mysql client
-      yum:
+      package:
         name: mariadb
+        state: present
     - name: Install mysql devel libs
-      yum:
+      package:
         name: mariadb-devel
+        state: present
     # Install gcc-c++: https://github.com/archivematica/Issues/issues/1093
     - name: Install gcc-c++
-      yum:
+      package:
         name: gcc-c++
+        state: present
   roles:
     - role: "artefactual.nginx"
     - role: "artefactual.gearman"
