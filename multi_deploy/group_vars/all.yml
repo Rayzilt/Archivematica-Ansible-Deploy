@@ -44,7 +44,7 @@ dashboard_02_archivematica_src_am_mcpserver_environment:
   ARCHIVEMATICA_MCPSERVER_EMAIL_DEFAULT_FROM_EMAIL: "mcpserver-02@pexample.com"
 
 # MySQL All settings
-all_archivematica_src_am_db_host: "10.0.200.10"
+all_archivematica_src_am_db_host: "mysql-01.example.com"
 mysql_firewalld_ports_open:
   - proto: tcp
     port: 3306
@@ -106,7 +106,7 @@ storage_archivematica_src_install_sample_data: yes
 storage_01_archivematica_src_configure_ss_user: "admin"
 storage_01_archivematica_src_configure_ss_password: "ChangeMeSSPassword"
 storage_01_archivematica_src_configure_ss_email: "archivematica-storage@example.com"
-storage_01_archivematica_src_configure_ss_url: "http://10.0.200.13:8000"
+storage_01_archivematica_src_configure_ss_url: "http://storage-01.example.com:8000"
 storage_firewalld_ports_open:
   - proto: tcp
     port: 8000
