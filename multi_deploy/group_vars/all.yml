@@ -13,6 +13,15 @@ dashboard_01_archivematica_src_am_db_host_access: "10.0.200.%"
 dashboard_01_archivematica_src_am_db_user: "dashboard01"
 dashboard_01_archivematica_src_am_db_password: "ChangeMeDashboard01"
 dashboard_01_archivematica_src_configure_am_site_url: "http://dashboard-01.example.com"
+dashboard_01_archivematica_src_am_dashboard_environment:
+  ARCHIVEMATICA_DASHBOARD_DASHBOARD_SITE_URL: "{{dashboard_01_archivematica_src_configure_am_site_url}}"
+  ARCHIVEMATICA_DASHBOARD_DASHBOARD_ELASTICSEARCH_SERVER: "elasticsearch-01.example.com:9200"
+  ARCHIVEMATICA_DASHBOARD_EMAIL_DEFAULT_FROM_EMAIL: "dashboard-01@example.com"
+dashboard_01_archivematica_src_am_mcpclient_environment:
+  ARCHIVEMATICA_MCPCLIENT_MCPCLIENT_ELASTICSEARCHSERVER: "elasticsearch-01.example.com:9200"
+  ARCHIVEMATICA_MCPCLIENT_EMAIL_DEFAULT_FROM_EMAIL: "mcpclient-01@example.com"
+dashboard_01_archivematica_src_am_mcpserver_environment:
+  ARCHIVEMATICA_MCPSERVER_EMAIL_DEFAULT_FROM_EMAIL: "mcpserver-01@pexample.com"
 
 # MySQL Dashboard-02 Configuration
 dashboard_02_archivematica_src_am_db_name: "dashboard02"
@@ -22,6 +31,17 @@ dashboard_02_archivematica_src_am_db_host_access: "10.0.200.%"
 dashboard_02_archivematica_src_am_db_user: "dashboard02"
 dashboard_02_archivematica_src_am_db_password: "ChangeMeDashboard02"
 dashboard_02_archivematica_src_configure_am_site_url: "http://dashboard-02.example.com"
+dashboard_02_archivematica_src_am_dashboard_environment:
+  ARCHIVEMATICA_DASHBOARD_DASHBOARD_SITE_URL: "{{dashboard_02_archivematica_src_configure_am_site_url}}"
+  ARCHIVEMATICA_DASHBOARD_DASHBOARD_ELASTICSEARCH_SERVER: "elasticsearch-02.example.com:9200"
+  ARCHIVEMATICA_DASHBOARD_DASHBOARD_ELASTICSEARCH_TIMEOUT: "60"
+  ARCHIVEMATICA_DASHBOARD_EMAIL_DEFAULT_FROM_EMAIL: "dashboard-02@example.com"
+dashboard_02_archivematica_src_am_mcpclient_environment:
+  ARCHIVEMATICA_MCPCLIENT_MCPCLIENT_ELASTICSEARCHSERVER: "elasticsearch-02.example.com:9200"
+  ARCHIVEMATICA_MCPCLIENT_MCPCLIENT_ELASTICSEARCHTIMEOUT: "60"
+  ARCHIVEMATICA_MCPCLIENT_EMAIL_DEFAULT_FROM_EMAIL: "mcpclient-02@example.com"
+dashboard_02_archivematica_src_am_mcpserver_environment:
+  ARCHIVEMATICA_MCPSERVER_EMAIL_DEFAULT_FROM_EMAIL: "mcpserver-02@pexample.com"
 
 # MySQL All settings
 all_archivematica_src_am_db_host: "10.0.200.10"
@@ -48,19 +68,11 @@ storage_01_archivematica_src_ss_environment:
 elasticsearch_01_elasticsearch_version: "6.5.4"
 elasticsearch_01_elasticsearch_heap_size: "512m"
 elasticsearch_01_elasticsearch_network_bind_host: "0.0.0.0"
-elasticsearch_01_archivematica_src_am_dashboard_environment:
-  ARCHIVEMATICA_DASHBOARD_DASHBOARD_ELASTICSEARCH_SERVER: "10.0.200.11:9200"
-elasticsearch_01_archivematica_src_am_mcpclient_environment:
-  ARCHIVEMATICA_MCPCLIENT_MCPCLIENT_ELASTICSEARCHSERVER: "10.0.200.11:9200"
 
 # Elasticsearch-02 Configuration
 elasticsearch_02_elasticsearch_version: "6.5.4"
 elasticsearch_02_elasticsearch_heap_size: "512m"
 elasticsearch_02_elasticsearch_network_bind_host: "0.0.0.0"
-elasticsearch_02_archivematica_src_am_dashboard_environment:
-  ARCHIVEMATICA_DASHBOARD_DASHBOARD_ELASTICSEARCH_SERVER: "10.0.200.12:9200"
-elasticsearch_02_archivematica_src_am_mcpclient_environment:
-  ARCHIVEMATICA_MCPCLIENT_MCPCLIENT_ELASTICSEARCHSERVER: "10.0.200.12:9200"
 
 # Elasticsearch All Configuration
 all_elasticsearch_max_open_files: "65535"
