@@ -2,8 +2,7 @@
 
 Non-Official Archivematica Deployment through Ansible
 
-This code is currently only tested against CentOS 7 with Ansible 2.9.4
-This would probably run on Ubuntu if the firewalld role is disabled in the playbook.
+This code is currently tested against CentOS 7 and Ubuntu 18.04 with Ansible 2.9.5
 
 ### Single node deployment ###
 In the folder single_deploy you find the configuration to deploy all services used by Archivematica to a single node.
