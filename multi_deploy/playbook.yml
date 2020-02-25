@@ -32,7 +32,6 @@
     - name: "Install MySQL Client, MySQL Client Development files and GNUPG2 [Ubuntu]"
       package:
         name: "{{item}}"
-        name: default-mysql-client
         state: present
       with_items:
         - default-mysql-client
