@@ -1,5 +1,11 @@
 - hosts: "mysql"
   become: true
+  pre_tasks:
+    - name: Install Python mysql
+      package:
+        name: python-mysqldb
+        state: present
+      when: ansible_distribution == "Ubuntu"
   roles:
     - role: "geerlingguy.mysql"
     - role: "oasis.firewalld"
@@ -15,14 +21,24 @@
 - hosts: "storage"
   become: true
   pre_tasks:
-    - name: Install mysql client
+    - name: "Install MySQL Client and MySQL Client Development files [RedHat/CentOS]"
       package:
-        name: mariadb
+        name: "{{item}}"
         state: present
-    - name: Install mysql devel libs
+      with_items:
+        - mariadb
+        - mariadb-devel
+      when: ansible_os_family == "RedHat"
+    - name: "Install MySQL Client, MySQL Client Development files and GNUPG2 [Ubuntu]"
       package:
-        name: mariadb-devel
+        name: "{{item}}"
+        name: default-mysql-client
         state: present
+      with_items:
+        - default-mysql-client
+        - default-libmysqlclient-dev
+        - gnupg2
+      when: ansible_distribution == "Ubuntu"
   roles:
     - role: "artefactual.nginx"
     - role: "archivematica-src"
@@ -32,19 +48,29 @@
 - hosts: "dashboard"
   become: true
   pre_tasks:
-    - name: Install mysql client
+    - name: "Install MySQL Client and MySQL Client Development files [RedHat/CentOS]"
       package:
-        name: mariadb
+        name: "{{item}}"
         state: present
-    - name: Install mysql devel libs
+      with_items:
+        - mariadb
+        - mariadb-devel
+      when: ansible_os_family == "RedHat"
+    - name: "Install MySQL Client, MySQL Client Development files and GNUPG2 [Ubuntu]"
       package:
-        name: mariadb-devel
+        name: "{{item}}"
         state: present
+      with_items:
+        - default-mysql-client
+        - default-libmysqlclient-dev
+        - gnupg2
+      when: ansible_distribution == "Ubuntu"
     # Install gcc-c++: https://github.com/archivematica/Issues/issues/1093
     - name: Install gcc-c++
       package:
         name: gcc-c++
         state: present
+      when: ansible_os_family == "RedHat"
   roles:
     - role: "artefactual.nginx"
     - role: "artefactual.gearman"
