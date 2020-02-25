@@ -28,11 +28,7 @@ all_firewalld_ports_open:
   - proto: tcp
     port: 80
   - proto: tcp
-    port: 3306
-  - proto: tcp
     port: 8000
-  - proto: tcp
-    port: 9200
 
 # MySQL Configuration
 mysql_01_mysql_root_password: 'ChangeMeMySQLRootPassword'

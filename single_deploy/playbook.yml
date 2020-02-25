@@ -8,15 +8,11 @@
       when: ansible_distribution == "Ubuntu"
   roles:
     - role: "geerlingguy.mysql"
-    - role: "oasis.firewalld"
-      when: ansible_os_family == "RedHat"
 
 - hosts: "elasticsearch"
   become: true
   roles:
     - role: "artefactual.elasticsearch"
-    - role: "oasis.firewalld"
-      when: ansible_os_family == "RedHat"
 
 - hosts: "storage"
   become: true
