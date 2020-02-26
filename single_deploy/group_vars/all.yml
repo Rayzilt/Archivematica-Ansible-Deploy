@@ -90,4 +90,8 @@ all_archivematica_src_configure_am_email: "archivematica-dashboard@example.com"
 all_archivematica_src_configure_am_org_name: "Example Organisation"
 all_archivematica_src_configure_am_org_id: "EXO"
 
+# Postfix Configuration
+all_postfix_relay_host: ""
+
+# Extra
 nodejs_install_npm_user: "{{ ansible_user_id }}"
