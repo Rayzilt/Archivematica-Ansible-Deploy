@@ -121,4 +121,8 @@ dashboard_firewalld_ports_open:
   - proto: tcp
     port: 80
 
+# Postfix Configuration
+all_postfix_relay_host: ""
+
+# Extra
 nodejs_install_npm_user: "{{ ansible_user_id }}"

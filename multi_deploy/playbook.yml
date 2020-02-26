@@ -1,10 +1,20 @@
 - hosts: "mysql"
   become: true
   pre_tasks:
-    - name: Install Python mysql
+    - name: "Install Postfix [RedHat/CentOS]"
       package:
-        name: python-mysqldb
+        name: "{{item}}"
         state: present
+      with_items:
+        - postfix
+      when: ansible_os_family == "RedHat"
+    - name: "Install Python mysql and Postfix [Ubuntu]"
+      package:
+        name: "{{item}}"
+        state: present
+      with_items:
+        - python-mysqldb
+        - postfix
       when: ansible_distribution == "Ubuntu"
   roles:
     - role: "geerlingguy.mysql"
@@ -13,6 +23,21 @@
 
 - hosts: "elasticsearch"
   become: true
+  pre_tasks:
+    - name: "Install Postfix [RedHat/CentOS]"
+      package:
+        name: "{{item}}"
+        state: present
+      with_items:
+        - postfix
+      when: ansible_os_family == "RedHat"
+    - name: "Install Postfix [Ubuntu]"
+      package:
+        name: "{{item}}"
+        state: present
+      with_items:
+        - postfix
+      when: ansible_distribution == "Ubuntu"
   roles:
     - role: "artefactual.elasticsearch"
     - role: "oasis.firewalld"
@@ -21,15 +46,17 @@
 - hosts: "storage"
   become: true
   pre_tasks:
-    - name: "Install MySQL Client and MySQL Client Development files [RedHat/CentOS]"
+    - name: "Install MySQL Client, MySQL Client Development files and Postfix [RedHat/CentOS]"
       package:
         name: "{{item}}"
         state: present
       with_items:
         - mariadb
         - mariadb-devel
+        # Postfix will be eventually a osdep
+        - postfix
       when: ansible_os_family == "RedHat"
-    - name: "Install MySQL Client, MySQL Client Development files and GNUPG2 [Ubuntu]"
+    - name: "Install MySQL Client, MySQL Client Development files, GNUPG2 and Postfix [Ubuntu]"
       package:
         name: "{{item}}"
         state: present
@@ -37,6 +64,8 @@
         - default-mysql-client
         - default-libmysqlclient-dev
         - gnupg2
+        # Postfix will be eventually a osdep
+        - postfix
       when: ansible_distribution == "Ubuntu"
   roles:
     - role: "artefactual.nginx"
