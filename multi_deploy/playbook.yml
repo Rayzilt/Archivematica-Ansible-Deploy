@@ -106,3 +106,9 @@
     - role: "archivematica-src"
     - role: "oasis.firewalld"
       when: ansible_os_family == "RedHat"
+
+- hosts: "all"
+  become: true
+  tasks:
+    - name: Configure Postfix relayhost
+      command: "/usr/sbin/postconf -e relayhost={{all_postfix_relay_host}}"
