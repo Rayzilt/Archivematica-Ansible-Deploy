@@ -72,6 +72,24 @@
     - role: "archivematica-src"
     - role: "oasis.firewalld"
       when: ansible_os_family == "RedHat"
+  tasks:
+    - name: Create .ssh directory in Archivematica home folder
+      file:
+        path: "/var/lib/archivematica/.ssh"
+        state: "directory"
+        mode: "0770"
+        owner: "archivematica"
+        group: "archivematica"
+      when: "all_configure_ssh_keys|bool"
+    - name: Create/Read SSH Key for Archivematica user
+      openssh_keypair:
+        group: "archivematica"
+        owner: "archivematica"
+        path: "/var/lib/archivematica/.ssh/id_rsa"
+        state: "present"
+        type: "rsa"
+      register: sshkey
+      when: "all_configure_ssh_keys|bool"
 
 - hosts: "dashboard"
   become: true
@@ -106,6 +124,14 @@
     - role: "archivematica-src"
     - role: "oasis.firewalld"
       when: ansible_os_family == "RedHat"
+  tasks:
+    - name: Install authorized key from storage service
+      authorized_key:
+        user: "archivematica"
+        state: "present"
+        key: "{{hostvars[item]['sshkey']['public_key']}}"
+      with_items: "{{groups['storage']}}"
+      when: "all_configure_ssh_keys|bool"
 
 - hosts: "all"
   become: true
