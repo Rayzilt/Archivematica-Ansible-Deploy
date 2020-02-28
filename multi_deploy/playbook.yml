@@ -119,6 +119,8 @@
         - default-mysql-client
         - default-libmysqlclient-dev
         - gnupg2
+        # Install openjdk-11-jre-headless for JHOVE
+        - openjdk-11-jre-headless
       when: ansible_distribution == "Ubuntu"
     # Install gcc-c++: https://github.com/archivematica/Issues/issues/1093
     - name: Install gcc-c++
