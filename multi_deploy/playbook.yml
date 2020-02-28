@@ -90,6 +90,15 @@
         type: "rsa"
       register: sshkey
       when: "all_configure_ssh_keys|bool"
+    - name: Change SSH Client config
+      lineinfile:
+        dest: "{{item.dest}}"
+        regexp: "{{item.regexp}}"
+        line: "{{item.line}}"
+      with_items:
+        - {dest: '/etc/ssh/ssh_config', regexp: '^#?\s*StrictHostKeyChecking', line: 'StrictHostKeyChecking no'}
+        - {dest: '/etc/ssh/ssh_config', regexp: '^#?\s*UserKnownHostsFile', line: 'UserKnownHostsFile /dev/null'}
+      when: "all_configure_ssh_keys|bool"
 
 - hosts: "dashboard"
   become: true
